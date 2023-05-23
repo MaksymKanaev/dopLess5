@@ -97,7 +97,7 @@ function startGame() {
    gamer.className = gamerSkin;
    createLifes();
    createEnemy();
-   // setTimeout(createEnemy2, 3000);
+   setInterval(createEnemy, 1000);
 }
 
 /** 
@@ -105,7 +105,7 @@ function startGame() {
 */
 
 //создание массива для определения количества врагов
-const myArray = [1, 2, 3];
+const myArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 //Случайный выбор количесва врагов которые появятся за раз 
 const randomIndex = Math.floor(Math.random() * myArray.length);
 const numOfEnemies = myArray[randomIndex];
@@ -116,7 +116,7 @@ function createEnemy() {
       let enemy = document.createElement("div"); //создание пблок div
       enemy.className = 'enemy ' + typeEnemy(); // присвоение класса 
       //выбор случайного места появления врага на поле
-      enemy.style.top = random(100, document.querySelector("#app").clientHeight - 100) + "px"; 
+      enemy.style.top = random(100, document.querySelector("#app").clientHeight - 150) + "px"; 
       // выбор местоположения созданых блоков див
       gameBlock.appendChild(enemy);
       moveEnemy(enemy);
@@ -165,7 +165,7 @@ function moveBullet(bullet) {
          clearInterval(idTimer);
       }
       isBoom(bullet);
-   }, 50);
+   }, 20);
 }
 // Функция попадания пули по врагу
 function isBoom(bullet) {
@@ -180,7 +180,7 @@ function isBoom(bullet) {
             score.innerText++; //добавление очков при попадании
             bullet.remove(); // удаление пули при попадании
             enemy.remove(); // удаление врага 
-            createEnemy(); // создание новых врагов
+            // createEnemy(); // создание новых врагов
       }
    });
 }   
