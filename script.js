@@ -105,7 +105,7 @@ function startGame() {
 */
 
 //создание массива для определения количества врагов
-const myArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+const myArray = [1, 2, 3, 4, 5];
 //Случайный выбор количесва врагов которые появятся за раз 
 const randomIndex = Math.floor(Math.random() * myArray.length);
 const numOfEnemies = myArray[randomIndex];
